@@ -7,6 +7,7 @@ import com.bhuvnesh.demo.Scope.PrototypeBean;
 import com.bhuvnesh.demo.Scope.SingletonBean;
 import com.bhuvnesh.demo.Service.MyService;
 import com.bhuvnesh.demo.Value.ValueAnnotationDemo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Lazy;
@@ -56,5 +57,11 @@ public class Main
         //System.out.println(valueAnnotationDemo.getHost());
         //System.out.println(valueAnnotationDemo.getEmail());
         //System.out.println(valueAnnotationDemo.getPassword());
+
+        DatabaseProperties db = context.getBean(DatabaseProperties.class);
+        FileProperties fp = context.getBean(FileProperties.class);
+        System.out.println(db.getName());
+        System.out.println(db.getClusterIP());
+        System.out.println(fp.getPath());
     }
 }
